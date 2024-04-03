@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSFDB</title>
+<!--    <link rel="stylesheet" href="/styles/style.css">-->
+</head>
+<body>
+    <h1>CSFDB</h1>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for it in db %}
+            <tr>
+                <td>{{ it.year }}</td>
+                <td>{{ it.name }}</td>
+                <td>{{ it.author }}</td>
+                <td>{{ it.text }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
