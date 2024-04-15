@@ -42,12 +42,18 @@ def article():
     return render_template('article.html')
 
 @app.route('/print', methods=['GET', 'POST'])
-def print():
+def do_print():
     return render_template('print.html')
+
+@app.route('/result', methods=['POST'])
+def get_result():
+    userInput = request.form['userInput']
+    result = gm.run(userInput)
+    return render_template('result.html', result = result)
 
 @app.route('/xxx')
 def xxx():
     return "待定"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=80)

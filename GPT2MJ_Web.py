@@ -103,8 +103,6 @@ def fetch(taskId):
 
 
 def work(prompt):
-
-
     messages = [{'role': 'user', 'content': 'I want to generate an image in MidJourney using the following paragraph as a description, please give the prompt in English that applies to MidJourney:' + prompt}, ]
     reply = chat(messages)
     if reply[0] == '\"' and reply[len(reply) - 1] == '\"':
