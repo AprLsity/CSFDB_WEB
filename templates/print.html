@@ -8,18 +8,19 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" rel="stylesheet">
 </head>
 <body style="background-image: url(/static/black_sea.jpg);background-repeat: no-repeat;background-size: cover;">
+
 <nav class="navbar navbar-light navbar-expand-md"
      style="background-color: #17191a;filter: blur(0px);padding-top: 20px;padding-right: 20;padding-bottom: 10px;padding-left: 10px;height: 8vh;color: rgb(255,255,255);">
     <div class="container-fluid">
         <button class="navbar-toggler" data-target="#navcol-1" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span
                 class="navbar-toggler-icon"></span></button>
         <a href="/"><img src="/static/icon.png"
-                         style="background-image: url(&quot;/static/icon.png&quot;);margin-right: 20px;height: 40px;"></a>
+                         style="background-image: url(/static/icon.png);margin-right: 20px;height: 40px;"></a>
         <div
                 class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation"><span class="float-left"
-                                                               style="font-size: 35px;margin-left: 10px;margin-bottom: 8px;font-weight: bold;">中国科幻文本数据库</span>
+                                                               style="font-size: 35px;margin-left: 10px;margin-bottom: 8px;font-weight: bold;">中国科幻数据库</span>
                 </li>
                 <li class="nav-item" role="presentation"><a class="nav-link active invisible" href="#"
                                                             style="color: rgb(255,255,255);font-size: 25px;">待定</a>
@@ -31,6 +32,7 @@
         </div>
     </div>
 </nav>
+
 <div>
     <div class="container">
         <div class="row">
@@ -42,8 +44,13 @@
     </div>
 </div>
 <div class="container text-center d-md-flex justify-content-md-center">
-    <form><textarea class="form-control"
-                    style="max-width: 80vw;width: 80vw;height: 70vh;background-image: url(/static/grey.jpg);background-size: 100%;background-repeat: no-repeat;padding-top: 0px;"></textarea>
+    <form method="post" action="/result" onsubmit="return validateLength()">
+        <textarea
+                class="form-control"
+                style="max-width: 80vw;width: 80vw;height: 70vh;background-image: url(/static/grey.jpg);background-size: 100%;background-repeat: no-repeat;padding-top: 0px;"
+                id="userInput"
+                name="userInput">
+        </textarea>
         <button class="btn btn-primary text-center"
                 style="background-color: rgb(90,134,181);width: 20%;height: 5%;margin-top: 10px;background-image: url(/static/grey.jpg);color: rgb(220,219,219);font-size: 18px;"
                 type="submit">
@@ -52,7 +59,16 @@
     </form>
 </div>
 
-</div>
+<script>
+    function validateLength() {
+        if (document.getElementById("userInput").value.length > 1s000) {
+            alert("输入的文段过长！");
+            return false;
+        }
+        return true;
+    }
+</script>
+
 <!--    <input type="submit" value="提交">-->
 </body>
 </html>
